@@ -19,7 +19,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { HashLocationStrategy } from '@angular/common';
 import { CarouselModule } from 'ngx-owl-carousel-o';
-import { ProductDetailsComponent } from './components/product-details/product-details.component';
+import { ProductDetailsComponent } from './components/products/product-details/product-details.component';
 import { AboutUsComponent } from './components/about-us/about-us.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SkeletonModule } from 'primeng/skeleton';

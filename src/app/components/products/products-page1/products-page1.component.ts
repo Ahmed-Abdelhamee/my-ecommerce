@@ -1,49 +1,43 @@
+import { NgClass } from '@angular/common';
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { OwlOptions } from 'ngx-owl-carousel-o';
+import { NgxPaginationModule } from 'ngx-pagination';
 import { Subscription } from 'rxjs';
-import { customOptions } from 'src/app/shared/helpers/carasouel';
 import { carasouel } from 'src/app/modules/interfaces/carasouels.interface';
 import { product } from 'src/app/modules/interfaces/product.interface';
 import { CarasouelsService } from 'src/app/modules/services/carasouels.service';
 import { DataService } from 'src/app/modules/services/data.service';
-import { NgxPaginationModule } from 'ngx-pagination';
-import { NgClass, NgFor } from '@angular/common';
-import { ToNumberPipe } from 'src/app/modules/pipes/to-number.pipe';
-import { RouterLink } from '@angular/router';
+import { ProductShapeComponent } from 'src/app/shared/components/product-shape/product-shape.component';
 
 @Component({
-  selector: 'app-resory',
-  templateUrl: './resory.component.html',
-  styleUrls: ['./resory.component.scss', '../../modules/css-styles/producst.scss'],
-  standalone :true,
-  imports:[NgxPaginationModule,NgClass,NgFor,ToNumberPipe,RouterLink]
+  selector: 'app-products-page1',
+  standalone: true,
+  imports: [NgClass, NgxPaginationModule, ProductShapeComponent],
+  templateUrl: './products-page1.component.html',
+  styleUrl: './products-page1.component.scss'
 })
-export class ResoryComponent implements OnInit, OnDestroy {
-
+export class ProductsPage1Component implements OnInit, OnDestroy {
 
   paginationSize: number = 12;
   paginationCurrentPage: number = 1;
-  rosarys: product[] = []
+  products: product[] = []
   Carasouels: carasouel[] = []
   Subscriptions: Subscription[] = [];
 
   constructor(private dataServ: DataService, private dataCarasouel: CarasouelsService) { }
 
   ngOnInit(): void {
-    this.getData()
+    this.getData();
     this.getCarasouels()
   }
 
   getData() {
-    this.rosarys = []
+    this.products = []
     this.Subscriptions.push(
-      this.dataServ.getProducts("rosary").subscribe({
+      this.dataServ.getProducts("ring").subscribe({
         next: data => {
-          for (const key in data) {
-            this.rosarys.push(data[key])
-          }
+          this.products = data;
         },
-        complete: ()=> this.rosarys.reverse()
+        complete: () => this.products.reverse()
       })
     )
   }

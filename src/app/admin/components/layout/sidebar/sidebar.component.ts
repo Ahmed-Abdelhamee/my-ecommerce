@@ -10,6 +10,7 @@ import { DividerModule } from 'primeng/divider';
   styleUrl: './sidebar.component.scss'
 })
 export class SidebarComponent {
+  title:string = "ecommerce title"
 
   sidebarLinks : sidebarRoutes[] = [
   { path: '/admin', title: 'Home', icon: 'bi bi-house-heart' },
@@ -19,6 +20,7 @@ export class SidebarComponent {
   { path: '/admin/social-links', title: 'social links', icon: 'bi bi-circle' },
   { path: '/admin/about-us', title: 'About Us', icon: 'bi bi-person-vcard' },
   { path: '/admin/user-msgs', title: 'user messages', icon: 'bi bi-person-vcard' },
+  { path: '/admin/translate', title: 'translate', icon: 'bi bi-person-vcard' },
 ];
 
 }

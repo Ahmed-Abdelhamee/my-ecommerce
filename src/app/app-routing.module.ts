@@ -1,19 +1,16 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
-import { ProductDetailsComponent } from './components/product-details/product-details.component';
-import { AboutUsComponent } from './components/about-us/about-us.component';
 
 export const routes: Routes = [
+  { path: "admin", loadChildren: () => import("./admin/admin.routes").then(m => m.routes) },
   { path: "home", redirectTo: "", pathMatch: "full" },
   { path: "", component: HomeComponent },
-  { path: "rings", loadChildren: () => import("./components/rings/rings.routes").then(m => m.routes) },
-  { path: "rosarys", loadChildren: () => import("./components/resory/resory.routes").then(m => m.routes) },
+  { path: "products-page1", loadChildren: () => import("./components/products/products-page1/products-page1.routes").then(m => m.routes) },
+  { path: "products-page2", loadChildren: () => import("./components/products/products-page2/products-page2.routes").then(m => m.routes) },
   { path: "youtube", loadChildren: () => import("./components/youtube-view/youtube.routes").then(m => m.routes) },
-  { path: "about-us", component: AboutUsComponent },
-  { path: "prodcut-details/:id", component: ProductDetailsComponent },
-  { path: "admin", loadChildren: () => import("./admin/admin.routes").then(m => m.routes) },
-  // { path: "add-translation", loadComponent : ()=> import('./translate/components/add-translation').then(c=> c.AddTranslationComponent) },
+  { path: "about-us", loadComponent : ()=> import('./components/about-us/about-us.component').then(c => c.AboutUsComponent) },
+  { path: "prodcut-details/:id", loadComponent : () => import('./components/products/product-details/product-details.component').then(c => c.ProductDetailsComponent) },
 ];
 
 @NgModule({

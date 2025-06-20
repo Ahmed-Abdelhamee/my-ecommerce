@@ -1,6 +1,6 @@
 import { FormBuilder, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
-import { socialLinks, whatsapp } from './../../modules/interfaces/socialLinks.interface';
-import { SocialMediaService } from './../../modules/services/social-media.service';
+import { socialLinks, whatsapp } from '../../../modules/interfaces/socialLinks.interface';
+import { SocialMediaService } from '../../../modules/services/social-media.service';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
@@ -12,7 +12,7 @@ import { SkeletonModule } from 'primeng/skeleton';
 @Component({
   selector: 'app-product-details',
   templateUrl: './product-details.component.html',
-  styleUrls: ['./product-details.component.scss', '../../modules/css-styles/producst.scss'],
+  styleUrls: ['./product-details.component.scss'],
   standalone: true,
   imports: [FormsModule, ReactiveFormsModule, NgClass , NgFor , NgIf ,SkeletonModule ]
 })

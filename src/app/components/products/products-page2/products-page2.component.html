@@ -19,7 +19,7 @@
 </div>
 
 <div class="col-12 d-flex justify-content-center flex-wrap mt-3 bottom-page">
-  @for (item of rosarys | paginate:{itemsPerPage:paginationSize ,currentPage:paginationCurrentPage}; track item; let i = $index) {
+  @for (item of products | paginate:{itemsPerPage:paginationSize ,currentPage:paginationCurrentPage}; track item; let i = $index) {
     <div class="col-lg-3 col-md-4 col-sm-6 p-1">
       <div class="card mb-2">
         <div class="product card p-1">
