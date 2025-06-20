@@ -25,7 +25,7 @@
         <span class="btn btn-primary add-form-item" (click)="addFormDetails()"><span>+</span></span>
         <!-- fristly we call form array name -->
         <!--  then we loop on the inputs array by get function   =>  arrayname?.controls  &  the index -->
-        @for (item of detailsArray?.controls ; track item; let i = $index) {
+        @for (item of detailsArray.controls ; track item; let i = $index) {
           <div class="inputs-group position-relative">
             <!-- then we bind the formGroupName in the form array    ==>>  [formGroupName]=" index in the array "   -->
             <ng-container [formGroupName]="i">
