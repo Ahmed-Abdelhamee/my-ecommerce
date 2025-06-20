@@ -1,13 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { NavigationEnd, Router, RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { Chart } from 'chart.js/auto';
+import { SidebarComponent } from './components/layout/sidebar/sidebar.component';
 
 @Component({
     selector: 'app-admin',
     templateUrl: './admin.component.html',
     styleUrls: ['./admin.component.scss'],
     standalone: true,
-    imports: [RouterLink, RouterLinkActive, RouterOutlet]
+    imports: [RouterLink, RouterLinkActive, RouterOutlet , SidebarComponent]
 })
 export class AdminComponent implements OnInit {
 
