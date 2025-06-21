@@ -1,12 +1,12 @@
 import { FormBuilder, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
-import { socialLinks, whatsapp } from '../../../modules/interfaces/socialLinks.interface';
+import { whatsapp } from '../../../modules/interfaces/socialLinks.interface';
 import { SocialMediaService } from '../../../modules/services/social-media.service';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { product } from 'src/app/modules/interfaces/product.interface';
 import { DataService } from 'src/app/modules/services/data.service';
-import { NgClass, NgFor, NgIf } from '@angular/common';
+import { NgClass } from '@angular/common';
 import { SkeletonModule } from 'primeng/skeleton';
 
 @Component({
@@ -14,7 +14,7 @@ import { SkeletonModule } from 'primeng/skeleton';
   templateUrl: './product-details.component.html',
   styleUrls: ['./product-details.component.scss'],
   standalone: true,
-  imports: [FormsModule, ReactiveFormsModule, NgClass , NgFor , NgIf ,SkeletonModule ]
+  imports: [FormsModule, ReactiveFormsModule, NgClass ,SkeletonModule ]
 })
 export class ProductDetailsComponent implements OnInit, OnDestroy {
 

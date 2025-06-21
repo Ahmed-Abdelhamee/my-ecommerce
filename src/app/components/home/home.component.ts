@@ -8,20 +8,19 @@ import { NgClass, ViewportScroller } from '@angular/common';
 import { FormBuilder, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { HomeMsgService } from 'src/app/modules/services/home-msg.service';
 import { ToastrService } from 'ngx-toastr';
-import { ToNumberPipe } from 'src/app/modules/pipes/to-number.pipe';
 import { ProductsCarouselComponent } from 'src/app/shared/components/products-carousel/products-carousel.component';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss', '../../modules/css-styles/producst.scss'],
+  styleUrls: ['./home.component.scss'],
   standalone: true,
-  imports: [FormsModule, ReactiveFormsModule, CarouselModule, ToNumberPipe, NgClass,ProductsCarouselComponent],
+  imports: [FormsModule, ReactiveFormsModule, CarouselModule, NgClass,ProductsCarouselComponent],
 })
 export class HomeComponent implements OnInit, OnDestroy {
 
-  ringsInHome: product[] = []
-  rosaryInHome: product[] = []
+  products1_In_Home: product[] = []
+  products2_In_Home: product[] = []
   Subscriptions: Subscription[] = [];
   customOptions: OwlOptions = customOptions;
   MessageForm = this.fromBuilder.group({
@@ -41,13 +40,13 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   getData() {
-    this.ringsInHome = []
-    this.rosaryInHome = []
+    this.products1_In_Home = []
+    this.products2_In_Home = []
     this.Subscriptions.push(
       this.dataServ.getProducts("ring").subscribe(data => {
         for (const key in data) {
           if (data[key].showOnHome == "true")
-            this.ringsInHome.push(data[key])
+            this.products1_In_Home.push(data[key])
         }
       })
     )
@@ -55,7 +54,7 @@ export class HomeComponent implements OnInit, OnDestroy {
       this.dataServ.getProducts("rosary").subscribe(data => {
         for (const key in data) {
           if (data[key].showOnHome == "true")
-            this.rosaryInHome.push(data[key])
+            this.products2_In_Home.push(data[key])
         }
       })
     )
