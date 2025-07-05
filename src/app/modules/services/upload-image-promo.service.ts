@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core';
 import { AngularFireStorage } from '@angular/fire/compat/storage';
 import { FormBuilder } from '@angular/forms';
+// Firebase Storage helpers (modular SDK v9)
+import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
+import { storage } from 'src/app/app.component';
 
 @Injectable({
   providedIn: 'root'
@@ -36,12 +39,13 @@ export class UploadImagePromoService {
       this.imgFiles.push(item)
     }
     if (this.imgFiles.length) {
-      for (const item of this.imgFiles) {
-        const path = `Images/${new Date().getTime()}${item.name}`;
-        const uploadTask = await this.firestorage.upload(path, item);
-        const url = await uploadTask.ref.getDownloadURL();
-        this.imagesArray.push(url);  // always push formGroup in any formArray
-      }
+     // ----------------  upload files code from chatgpt -----------------
+        for (const file of this.imgFiles) {
+            const path = `Products-Images/${Date.now()}_${file.name}`;
+            const snapshot = await uploadBytes(ref(storage, path), file);
+            const url = await getDownloadURL(snapshot.ref);
+            this.imagesArray.push(url);
+        }
     }
     return this.imagesArray
   }

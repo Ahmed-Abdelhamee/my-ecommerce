@@ -9,13 +9,16 @@ import { ToastrService } from 'ngx-toastr';
 import { Subscription } from 'rxjs';
 import { ViewEditProdsComponent } from './view-edit-prods/view-edit-prods.component';
 import { CountriesCurrencyService } from 'src/app/modules/services/countries-currency.service';
+// Firebase Storage helpers (modular SDK v9)
+import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
+import { storage } from 'src/app/app.component';
 
 @Component({
-    selector: 'app-product',
-    templateUrl: './product.component.html',
-    styleUrls: ['./product.component.scss', ],
-    standalone: true,
-    imports: [FormsModule, ReactiveFormsModule, CdkDropList, CdkDrag, ViewEditProdsComponent]
+  selector: 'app-product',
+  templateUrl: './product.component.html',
+  styleUrls: ['./product.component.scss',],
+  standalone: true,
+  imports: [FormsModule, ReactiveFormsModule, CdkDropList, CdkDrag, ViewEditProdsComponent]
 })
 export class ProductComponent implements OnDestroy {
   controlView: string = "add";
@@ -38,7 +41,7 @@ export class ProductComponent implements OnDestroy {
     category: ["", Validators.required],
     details: this.formBuilder.array([], Validators.minLength(1)),
     prices: this.formBuilder.array([], Validators.minLength(1)),
-    discount: [0, [Validators.required,Validators.max(99),Validators.min(0)]],
+    discount: [0, [Validators.required, Validators.max(99), Validators.min(0)]],
     productRate: ["", Validators.required],
     showOnHome: ["false", Validators.required],
     available: ["true", Validators.required],
@@ -122,14 +125,15 @@ export class ProductComponent implements OnDestroy {
           this.bigImages.push(item)
         } else {
           this.imgFiles.push(item);
-        }        
+        }
       }
       if (this.imgFiles.length) {
-        for (const item of this.imgFiles) {
-          const path = `Images/${new Date().getTime()}${item.name}`;
-          const uploadTask = await this.firestorage.upload(path, item);
-          const url = await uploadTask.ref.getDownloadURL();
-          this.promoImages.push(url)
+        // ----------------  upload files code from chatgpt -----------------
+        for (const file of this.imgFiles) {
+            const path = `Products-Images/${Date.now()}_${file.name}`;
+            const snapshot = await uploadBytes(ref(storage, path), file);
+            const url = await getDownloadURL(snapshot.ref);
+            this.promoImages.push(url);
         }
         this.orderingProductImages()
       }
@@ -137,7 +141,7 @@ export class ProductComponent implements OnDestroy {
       this.imgFiles = []
     }
   }
-  
+
   // addImageLink(){
   //   this.promoImages.push(this.imageFromLink);
   //   this.orderingProductImages()
