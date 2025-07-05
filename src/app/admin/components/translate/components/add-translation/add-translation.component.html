@@ -1,3 +1,11 @@
 <form [formGroup]="translation">
-    
+    @for (item of translationFormKeys; track $index) {
+        <div class="form-group my-2">
+            <label class="text-capitalize" [for]="item.inputData.key">{{item.title}}</label>
+            <input class="form-control" type="text" [name]="item.inputData.key" [id]="item.inputData.key" [formControlName]="item.inputData.key">
+        </div>
+    }
+    <div class="center-horizontal p-2">
+        <button type="submit" class="btn btn-outline-info text-capitalize">add</button>
+    </div>
 </form>
