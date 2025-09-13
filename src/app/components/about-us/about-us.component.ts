@@ -6,7 +6,7 @@ import { AboutUsDataService } from 'src/app/modules/services/about-us-data.servi
 @Component({
   selector: 'app-about-us',
   templateUrl: './about-us.component.html',
-  styleUrls: ['./about-us.component.scss', '../../modules/css-styles/producst.scss'],
+  styleUrls: ['./about-us.component.scss', '../../modules/css-styles/products.scss'],
   standalone:true,
   imports:[]
 })
@@ -32,7 +32,7 @@ export class AboutUsComponent {
       })
     )
   }
- 
+
 
 
   ngOnDestroy() {

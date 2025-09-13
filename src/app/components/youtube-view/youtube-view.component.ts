@@ -8,7 +8,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 @Component({
     selector: 'app-youtube-view',
     templateUrl: './youtube-view.component.html',
-    styleUrls: ['./youtube-view.component.scss', '../../modules/css-styles/producst.scss'],
+    styleUrls: ['./youtube-view.component.scss', '../../modules/css-styles/products.scss'],
     standalone: true,
     imports: [NgxPaginationModule, YoutubeSafeurlPipe]
 })
