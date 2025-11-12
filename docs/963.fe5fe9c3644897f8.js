@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkecommerce=self.webpackChunkecommerce||[]).push([[963],{3963:(m,n,o)=>{o.r(n),o.d(n,{routes:()=>s});const s=[{path:"",loadComponent:()=>Promise.all([o.e(76),o.e(418)]).then(o.bind(o,418)).then(t=>t.ProductsPage1Component)}]}}]);

@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkecommerce=self.webpackChunkecommerce||[]).push([[514],{6514:(m,n,o)=>{o.r(n),o.d(n,{routes:()=>t});const t=[{path:"",loadComponent:()=>Promise.all([o.e(76),o.e(613)]).then(o.bind(o,2613)).then(s=>s.YoutubeComponent)}]}}]);

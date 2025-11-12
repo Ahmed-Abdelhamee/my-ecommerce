@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkecommerce=self.webpackChunkecommerce||[]).push([[814],{5814:(d,o,n)=>{n.r(o),n.d(o,{routes:()=>t});const t=[{path:"",loadComponent:()=>n.e(801).then(n.bind(n,5801)).then(s=>s.AddTranslationComponent)}]}}]);

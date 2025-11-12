@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkecommerce=self.webpackChunkecommerce||[]).push([[400],{4400:(m,n,o)=>{o.r(n),o.d(n,{routes:()=>s});const s=[{path:"",loadComponent:()=>Promise.all([o.e(64),o.e(76),o.e(967)]).then(o.bind(o,4967)).then(t=>t.CarasouelsComponent)}]}}]);
